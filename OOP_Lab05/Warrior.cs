@@ -10,6 +10,16 @@ namespace OOP_Lab05 {
 
     abstract class Warrior : IUnitAction {
 
+        private UInt32 _health = 100u;
+        public UInt32 Health {
+            get {
+                return _health;
+            }
+            set {
+                _health = Math.Max(0u, value);
+            }
+        }
+
         private String _name;
         public String Name {
             get {
@@ -52,12 +62,29 @@ namespace OOP_Lab05 {
             this.Position = cortage.Item2;
         }
 
+        public void Attack(Warrior warrior) {
+            if (warrior != this) {
+                UInt32 power = (UInt32)(Utils.Random.Next( ) % Rang);
+                warrior.Health -= power;
+                Console.WriteLine(Name + " attack " + warrior.Name + " (-" + power + " hp)");
+            }
+        }
+
+        public void Healing(Warrior warrior) {
+            if (this is Druid) {
+                UInt32 power = (UInt32)(Utils.Random.Next( ) % Rang);
+                warrior.Health += power;
+                Console.WriteLine(Name + " heal " + warrior.Name + " (+" + power + " hp)");
+            }
+        }
+
         public override String ToString( ) {
             GetPointDescripion description = point => point.ToString( );
             String result = "Warrior\n";
             result += "\tPosition : " + description(this.Position) + "\n";
             result += "\tName : " + this.Name + "\n";
-            result += "\tRang : " + this.Rang;
+            result += "\tRang : " + this.Rang + "\n";
+            result += "\tHealth : " + this.Health;
             return result;
         }
         public override Boolean Equals(Object obj) {
@@ -91,7 +118,7 @@ namespace OOP_Lab05 {
 
         public void MoveTo(Point Position) {
             //if (CanMoveTo(Position)) {
-                this.Position = Position;
+            this.Position = Position;
             //}
         }
 

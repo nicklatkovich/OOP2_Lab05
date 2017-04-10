@@ -8,24 +8,20 @@ namespace OOP_Lab05 {
     class Program {
         static void Main(string[ ] args) {
             Archer trax = new Archer("Drow Ranger", new Point(0, 0), 125, 14);
-            Druid trent = new Druid("Trent", new Point(16, 17), 640, 9);
-
-            WarriorMemento memory = new WarriorMemento(trax);
-
+            Druid trent = new Druid("Treant Protector", new Point(16, 17), 640, 9);
             Console.WriteLine(trax);
             Console.WriteLine(trent);
 
-            Console.WriteLine("\nAction:\tDrow got new rang\n");
-            trax = ((trax as Warrior) + 1) as Archer;
-            trax.MoveTo(new Point(18, 14));
-            Console.WriteLine(trax);
-
-            Console.WriteLine("\nAction:\tTimeback!\n");
-            Restorer.Restore(trax, memory);
-            Console.WriteLine(trax);
+            Game game = new Game( );
+            game.EnterWarrior(trax);
+            game.EnterWarrior(trent);
+            game.Attack(trent);
+            game.Attack(trax);
+            game.Attack(trent);
+            game.Healing(trent);
 
 #if DEBUG
-            Console.WriteLine("Press any button...");
+            Console.WriteLine("\n Press any button...");
             Console.ReadKey( );
 #endif
 

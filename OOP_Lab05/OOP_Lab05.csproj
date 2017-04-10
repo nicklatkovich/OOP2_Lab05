@@ -46,6 +46,7 @@
     <Compile Include="Archer.cs" />
     <Compile Include="Druid.cs" />
     <Compile Include="DruidMore.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="God.cs" />
     <Compile Include="Magic.cs" />
     <Compile Include="Memento.cs" />
@@ -59,6 +60,7 @@
     </Compile>
     <Compile Include="Restorer.cs" />
     <Compile Include="UnitAction.cs" />
+    <Compile Include="Utils.cs" />
     <Compile Include="Warrior.cs" />
   </ItemGroup>
   <ItemGroup>
