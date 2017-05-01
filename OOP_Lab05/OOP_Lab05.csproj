@@ -58,6 +58,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Reflector.cs" />
     <Compile Include="Restorer.cs" />
     <Compile Include="UnitAction.cs" />
     <Compile Include="Utils.cs" />

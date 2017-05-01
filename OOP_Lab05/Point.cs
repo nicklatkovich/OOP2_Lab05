@@ -31,5 +31,9 @@ namespace OOP_Lab05 {
             Int32 y = BitConverter.ToInt32(BitConverter.GetBytes(this.Y), 0);
             return (~x) ^ y;
         }
+        public static explicit operator Point(string s) {
+            string[ ] coords = s.Split(';');
+            return new Point(float.Parse(coords[0]), float.Parse(coords[1]));
+        }
     }
 }

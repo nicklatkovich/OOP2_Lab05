@@ -122,6 +122,10 @@ namespace OOP_Lab05 {
             //}
         }
 
+        public void MoveToString(string coords) {
+            MoveTo((Point)coords);
+        }
+
         public void DoMagic(Magic magic) {
             throw new Exception("This unit can not use magic");
         }
